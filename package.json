@@ -1,0 +1,28 @@
+{
+  "name": "demo-elasticsearch-on-aws",
+  "version": "0.0.1",
+  "description": "demo for using @elastic/elasticsearch client with aws-sdk",
+  "main": "Demo",
+  "dependencies": {
+    "@elastic/elasticsearch": "^6.7.1",
+    "aws-sdk": "^2.507.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trmaphi/demo-elasticsearch-on-aws.git"
+  },
+  "keywords": [
+    "aws",
+    "elasticsearch"
+  ],
+  "author": "Truong Ma Phi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trmaphi/demo-elasticsearch-on-aws/issues"
+  },
+  "homepage": "https://github.com/trmaphi/demo-elasticsearch-on-aws#readme"
+}
