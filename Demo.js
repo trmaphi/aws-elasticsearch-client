@@ -1,21 +1,21 @@
-const { AWSConnection } = require('./Connection');
+require('dotenv').config();
+const { AWSConnection } = require('./AWSConnection');
 const { Client } = require('@elastic/elasticsearch');
 const AWS = require('aws-sdk');
 
 AWS.config.update({
-    credentials: new AWS.Credentials({
-        accessKeyId: '***',
-        secretAccessKey: '***',
-    }),
-    region: '***',
+    credentials: new AWS.SharedIniFileCredentials({ profile: process.env.profile }),
+    region: process.env.region,
 })
 
 const client = new Client({
-    node: '***',
+    node: process.env.node,
     Connection: AWSConnection
 });
 
 client.search({
-    index: '****',
+    index: process.env.index,
     body: { query: { match_all: {} } }
-}).then(res => console.log(res.body.hits.hits[0]));
+})
+    .then(res => console.log(res.body.hits.hits))
+    .catch(err => console.error(err));
