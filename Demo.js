@@ -1,12 +1,12 @@
-import { AWSConnection } from './Connection';
-import { Client } from '@elastic/elasticsearch';
-import AWS from 'aws-sdk';
+const { AWSConnection } = require('./Connection');
+const { Client } = require('@elastic/elasticsearch');
+const AWS = require('aws-sdk');
 
 AWS.config.update({
-    credentials: new AWS.Credentials(
-        '***',
-        '***',
-    ),
+    credentials: new AWS.Credentials({
+        accessKeyId: '***',
+        secretAccessKey: '***',
+    }),
     region: '***',
 })
 
@@ -15,4 +15,7 @@ const client = new Client({
     Connection: AWSConnection
 });
 
-export default client; 
+client.search({
+    index: '****',
+    body: { query: { match_all: {} } }
+}).then(res => console.log(res.body.hits.hits[0]));

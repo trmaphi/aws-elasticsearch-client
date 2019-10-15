@@ -1,5 +1,5 @@
-import AWS from 'aws-sdk';
-import { Connection } from '@elastic/elasticsearch';
+const AWS = require('aws-sdk');
+const { Connection } = require('@elastic/elasticsearch');
 
 class AWSConnection extends Connection {
     async request(params, callback) {
@@ -60,4 +60,4 @@ class AWSConnection extends Connection {
     }
 }
 
-export { AWSConnection };
+module.exports = { AWSConnection };
