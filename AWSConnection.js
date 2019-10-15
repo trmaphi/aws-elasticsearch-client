@@ -4,17 +4,17 @@ const { Connection } = require('@elastic/elasticsearch');
 class AWSConnection extends Connection {
     async request(params, callback) {
         try {
-            const creds = await this.getAWSCredentials();
-            const req = this.createRequest(params);
+            const creds = await this._getAWSCredentials();
+            const req = this._createRequest(params);
 
-            const { request: signedRequest } = this.signRequest(req, creds);
+            const { request: signedRequest } = this._signRequest(req, creds);
             super.request(signedRequest, callback);
         } catch (error) {
             throw error;
         }
     }
 
-    createRequest(params) {
+    _createRequest(params) {
         const endpoint = new AWS.Endpoint(this.url.href);
         let req = new AWS.HttpRequest(endpoint);
 
@@ -39,7 +39,7 @@ class AWSConnection extends Connection {
         return req;
     }
 
-    getAWSCredentials() {
+    _getAWSCredentials() {
         return new Promise((resolve, reject) => {
             AWS.config.getCredentials((err, creds) => {
                 if (err) {
@@ -53,7 +53,7 @@ class AWSConnection extends Connection {
         });
     }
 
-    signRequest(request, creds) {
+    _signRequest(request, creds) {
         const signer = new AWS.Signers.V4(request, 'es');
         signer.addAuthorization(creds, new Date());
         return signer;
