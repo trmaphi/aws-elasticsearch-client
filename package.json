@@ -1,5 +1,5 @@
 {
-  "name": "demo-elasticsearch-on-aws",
+  "name": "aws-elasticsearch-client",
   "version": "0.0.0",
   "description": "Using @elastic/elasticsearch client with aws-sdk",
   "main": "index.js",
@@ -21,7 +21,7 @@
     "aws",
     "elasticsearch"
   ],
-  "author": "Truong Ma Phi",
+  "author": "Truong Ma Phi<trmaphi@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/trmaphi/aws-elasticsearch-client/issues"
