@@ -1,6 +1,6 @@
 {
   "name": "@trmaphi/aws-elasticsearch-service-client",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Using @elastic/elasticsearch client with aws-sdk",
   "main": "index.js",
   "peerDependencies": {
