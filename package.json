@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "Using @elastic/elasticsearch client with aws-sdk",
   "main": "index.js",
-  "dependencies": {
-    "@elastic/elasticsearch": "^6.7.1",
-    "aws-sdk": "^2.507.0"
+  "peerDependencies": {
+    "@elastic/elasticsearch": "^5.x",
+    "aws-sdk": "^2.32.0"
   },
   "devDependencies": {
     "dotenv": "^8.1.0"
