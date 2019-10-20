@@ -1,6 +1,6 @@
 # AWS ElasticSearch Service Client
 
-Unofficial AWS ElasticSearch Service client for Node.js
+Reuse the established [elasticsearch-js](https://github.com/elastic/elasticsearch-js) client with AWS signature v4. Built-in support for Typescript.
 
 ## Getting Started
 
